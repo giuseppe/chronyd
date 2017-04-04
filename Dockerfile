@@ -18,6 +18,8 @@ RUN dnf install -y chrony && \
  echo "allow all" >> /etc/chrony.conf && \
  dnf clean all
 
+COPY exports/config.json.template /exports/
+
 USER 0
 CMD ["/usr/sbin/chronyd","-d"]
 
